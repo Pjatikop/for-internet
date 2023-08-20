@@ -1,0 +1,11 @@
+{% extends 'radio/base.html' %}
+
+{% block content %}
+
+<h1>Мои радиостанции:</h1>
+<div class="radios">
+    {% for radio in radios %}
+        <h3><a href="{% url 'viewradio' radio.id %}">{{ radio.title }}</a></h3>
+    {% endfor %}
+</div>
+{% endblock %}

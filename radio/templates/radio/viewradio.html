@@ -1,0 +1,27 @@
+{% extends 'radio/base.html' %}
+{% load static %}
+{% block content %}
+<div id="name">
+{{ radio.title }}
+</div>
+<br>
+<div id="radiobells_container"></div>
+
+
+          <link href="{% static 'styles/style.css' %}" type="text/css" rel="stylesheet" />
+          <script>
+          var rad_backcolor="#434242"; var rad_logo = "black"; var rad_autoplay = false;
+          var rad_width = "responsive"; var rad_width_px = 330;
+          var rad_stations =['{{ radio.demo_link }}','{{ radio.title }}','{{ radio.name_link }}'];
+          </script>
+
+          <script src="{% static 'styles/v2_1.js' %}" charset="UTF-8"></script>
+
+<div class="but">
+<form action="{% url 'deleteradio' radio.id %}" method="post">
+    {% csrf_token %}
+    <button class="btn remove">Удалить</button>
+</form>
+</div>
+
+{% endblock %}
